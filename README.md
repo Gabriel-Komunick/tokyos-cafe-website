@@ -70,20 +70,26 @@ O **cobogó** (quadrado com furo redondo, em referência ao edifício Pirapama)
 padrão do hero, no divisor entre seções, na régua de cada grupo do cardápio,
 no bloco da relíquia e no favicon.
 
-Tipografia: **Anton** nos títulos (letreiro condensado, pegada anos 60) e
-**Archivo** no texto.
+Tipografia: **Baloo 2** nos títulos e na marca, **Archivo** no texto. A
+escolha segue o logotipo — uma fonte condensada dura (era Anton) brigava com
+o desenho arredondado da logo.
 
-A **marca** é puramente tipográfica: "TOKYO'S" em tinta e "CAFÉ" em laranja,
-assentados sobre uma régua laranja que evoca a barra de um letreiro. Não há
-símbolo — o nome é a assinatura. Quando a fonte oficial da casa estiver
-disponível, basta trocar `--fonte-display` ou aplicar a fonte só em
-`.brand-word`.
+A **marca** reproduz a logo da casa: placa laranja de cantos arredondados,
+"Tokyo's" em branco na fonte arredondada, "CAFÉ" em versalete alinhado à
+direita, e o salpicado claro do fundo original (feito em SVG, sem imagem).
+Ela é dimensionada pelo `font-size` do elemento pai — `.header-inner .marca`
+usa 15px, `.marca-grande` no rodapé usa 21px; todo o resto escala junto.
+
+Se a casa fornecer o arquivo da fonte real do logotipo, basta apontar
+`--fonte-display` para ela.
 
 ## Pendências antes de publicar
 
 - [ ] **Endereço real.** Hoje há um placeholder marcado em vermelho na seção
       "Visite" (`index.html`) e no JSON-LD no fim do arquivo. Os dois precisam
-      ser trocados.
+      ser trocados. Obs.: a URL do iFood termina em `tokyos-cafe-gracas`, o que
+      sugere o bairro das **Graças** — mas um slug não é endereço, então o
+      placeholder segue como está até alguém confirmar.
 - [ ] **Fotos reais.** As imagens em `assets/img/` são **temporárias** — fotos
       de banco escolhidas só por terem contexto parecido. Nenhuma é do
       Tokyo's Café. Ver [`assets/img/CREDITOS.md`](assets/img/CREDITOS.md)
@@ -91,9 +97,7 @@ disponível, basta trocar `--fonte-display` ou aplicar a fonte só em
       mesmos nomes de arquivo, a troca não exige mexer no layout.
 
 - [ ] **Domínio.** Atualizar a `url` no JSON-LD e a `og:url`.
-- [ ] **Delivery / reserva.** Se houver iFood, Rappi ou link de reserva,
-      vale um botão no hero e um card na seção "Visite".
-- [ ] **Telefone / WhatsApp**, se a casa quiser receber contato direto.
+- [ ] **Reserva**, se a casa aceitar.
 
 ## Detalhes de implementação
 
@@ -105,3 +109,17 @@ disponível, basta trocar `--fonte-display` ou aplicar a fonte só em
 - SEO local via JSON-LD `schema.org/Restaurant` no fim do `index.html`.
 - Acessibilidade: skip link, foco visível, `prefers-reduced-motion` respeitado.
 - Há uma folha de impressão: `Ctrl+P` gera só o cardápio, sem navegação.
+
+## Links externos
+
+Estão espalhados pelo `index.html` — se algum mudar, procure pela URL:
+
+| Onde | Destino |
+|---|---|
+| Botão do topo e cartão "Delivery" | iFood |
+| Botão flutuante (`.whats`) e cartão "Contato" | WhatsApp `+55 81 3426-1610` |
+| Cartão "Contato" e rodapé | Instagram `@tokyosrecife` |
+| Cartão "Endereço" | Google Maps |
+
+O Instagram aparece só no fim da página e no rodapé — o botão de destaque do
+cabeçalho é o do iFood.
