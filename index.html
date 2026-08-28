@@ -12,11 +12,12 @@
 <meta property="og:description" content="A primeira pastelaria de Pernambuco. Pastel feito na hora, como manda a tradição.">
 <meta property="og:locale" content="pt_BR">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%23E5601F'/%3E%3Ctext x='50' y='50' font-size='62' font-family='serif' fill='%23FBF7F0' text-anchor='middle' dominant-baseline='central'%3E%E6%9D%B1%3C/text%3E%3C/svg%3E">
+<!-- favicon: o cobogó da casa — quadrado com furo redondo -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%23E5601F'/%3E%3Crect x='22' y='22' width='56' height='56' rx='4' fill='none' stroke='%23FBF7F0' stroke-width='8'/%3E%3Ccircle cx='50' cy='50' r='13' fill='none' stroke='%23FBF7F0' stroke-width='8'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -27,8 +28,10 @@
 <header class="site-header" id="topo">
   <div class="wrap header-inner">
     <a class="brand" href="#topo" aria-label="Tokyo's Café — início">
-      <span class="brand-kanji" aria-hidden="true">東京</span>
-      <span class="brand-name">Tokyo<span class="apos">’</span>s <em>Café</em></span>
+      <span class="marca">
+        <span class="marca-nome">Tokyo<span class="apos">’</span>s</span>
+        <span class="marca-cafe">Café</span>
+      </span>
     </a>
 
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
@@ -42,7 +45,7 @@
         <li><a href="#cardapio">Cardápio</a></li>
         <li><a href="#salao">O salão</a></li>
         <li><a href="#visite">Visite</a></li>
-        <li><a class="nav-cta" href="https://www.instagram.com/tokyosrecife/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a class="nav-cta" href="https://www.ifood.com.br/delivery/recife-pe/tokyos-cafe-gracas/671bc274-ac4b-479d-b6b4-1a39fb78ec51" target="_blank" rel="noopener">Pedir no iFood</a></li>
       </ul>
     </nav>
   </div>
@@ -63,12 +66,14 @@
       no mesmo endereço.
     </p>
     <p class="hero-actions">
-      <a class="btn btn-primary" href="#cardapio">Ver cardápio</a>
+      <a class="btn btn-cta" href="#cardapio">Ver cardápio</a>
       <a class="btn btn-ghost" href="#visite">Como chegar</a>
     </p>
   </div>
-  <div class="hero-photo" role="img" aria-label="Pastéis recém-fritos no balcão do Tokyo's Café">
-    <div class="ph ph-hero" data-ph="assets/img/hero.jpg — pastel saindo da chapa / balcão"></div>
+  <div class="hero-photo">
+    <img class="foto-hero" src="assets/img/hero.jpg"
+         alt="Balcão de pastelaria com bandejas de salgados fritos recém-saídos da chapa"
+         width="1800" height="1200" fetchpriority="high">
   </div>
 </section>
 
@@ -107,11 +112,15 @@
 
       <div class="hist-fotos">
         <figure class="foto foto-arquivo">
-          <div class="ph ph-4x3" data-ph="assets/img/1965-fachada.jpg — fachada 東京 LANCHE, 1965"></div>
+          <img class="img-4x3" src="assets/img/1965-fachada.jpg"
+               alt="Fachada de uma pequena casa comercial com letreiro em caracteres japoneses e toldo listrado"
+               width="1100" height="733" loading="lazy">
           <figcaption>A fachada da Tokyo Lanche na rua Sete de Setembro, 1965.</figcaption>
         </figure>
         <figure class="foto foto-arquivo">
-          <div class="ph ph-4x3" data-ph="assets/img/1965-familia.jpg — família atrás do balcão"></div>
+          <img class="img-4x3" src="assets/img/1965-familia.jpg"
+               alt="Retrato antigo em preto e branco de uma família posando lado a lado"
+               width="1100" height="783" loading="lazy">
           <figcaption>A família atrás do balcão, de avental branco.</figcaption>
         </figure>
       </div>
@@ -147,11 +156,15 @@
 
       <div class="hist-fotos">
         <figure class="foto">
-          <div class="ph ph-4x3" data-ph="assets/img/salao-amplo.jpg — piso quadriculado, luminárias globulares"></div>
+          <img class="img-4x3" src="assets/img/salao-amplo.jpg"
+               alt="Salão de restaurante com bancos estofados vermelhos e brancos e luminárias suspensas"
+               width="1100" height="733" loading="lazy">
           <figcaption>O salão: piso quadriculado, luminárias globulares, parede terracota.</figcaption>
         </figure>
         <figure class="foto">
-          <div class="ph ph-4x3" data-ph="assets/img/maquina-pastel.jpg — máquina antiga em exposição"></div>
+          <img class="img-4x3" src="assets/img/maquina-pastel.jpg"
+               alt="Máquina antiga de ferro fundido com manivela, exposta sobre uma bancada"
+               width="1100" height="733" loading="lazy">
           <figcaption>A máquina de fazer pastel, mantida em exposição.</figcaption>
         </figure>
       </div>
@@ -204,10 +217,18 @@
       <p class="section-sub">Cobogós, xadrez verde e branco e a luz da tarde entrando pelos furos.</p>
     </div>
     <div class="galeria">
-      <div class="ph ph-3x4" data-ph="assets/img/galeria-1.jpg — cobogós"></div>
-      <div class="ph ph-3x4" data-ph="assets/img/galeria-2.jpg — mesa com estofado rosa"></div>
-      <div class="ph ph-3x4" data-ph="assets/img/galeria-3.jpg — vitrine de doces"></div>
-      <div class="ph ph-3x4" data-ph="assets/img/galeria-4.jpg — detalhe do piso quadriculado"></div>
+      <img class="img-3x4" src="assets/img/galeria-1.jpg"
+           alt="Parede de cobogós brancos vazados vista de perto"
+           width="760" height="1140" loading="lazy">
+      <img class="img-3x4" src="assets/img/galeria-2.jpg"
+           alt="Cadeiras de estofado vermelho diante de uma parede quadriculada preta e branca"
+           width="760" height="1140" loading="lazy">
+      <img class="img-3x4" src="assets/img/galeria-3.jpg"
+           alt="Vitrine refrigerada com tortas de frutas vermelhas e bolos"
+           width="760" height="1140" loading="lazy">
+      <img class="img-3x4" src="assets/img/galeria-4.jpg"
+           alt="Detalhe do piso quadriculado em mármore preto e branco"
+           width="760" height="493" loading="lazy">
     </div>
   </div>
 </section>
@@ -242,10 +263,24 @@
         <p class="status" id="statusAberto" hidden></p>
       </div>
 
+      <div class="card card-delivery">
+        <h3>Delivery</h3>
+        <p>Não vai dar pra vir até aqui? O cardápio sai pela porta.</p>
+        <p>
+          <a class="btn btn-primary btn-sm" href="https://www.ifood.com.br/delivery/recife-pe/tokyos-cafe-gracas/671bc274-ac4b-479d-b6b4-1a39fb78ec51" target="_blank" rel="noopener">Pedir no iFood</a>
+        </p>
+      </div>
+
       <div class="card card-contato">
         <h3>Contato</h3>
-        <p>Acompanhe o dia a dia da casa, os sabores da semana e o que sai do forno.</p>
-        <p><a class="btn btn-ghost btn-sm" href="https://www.instagram.com/tokyosrecife/" target="_blank" rel="noopener">@tokyosrecife</a></p>
+        <p>
+          <a class="link-forte" href="tel:+558134261610">(81) 3426-1610</a><br>
+          Acompanhe o dia a dia da casa, os sabores da semana e o que sai do forno.
+        </p>
+        <p>
+          <a class="btn btn-ghost btn-sm" href="https://api.whatsapp.com/send/?phone=558134261610&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-ghost btn-sm" href="https://www.instagram.com/tokyosrecife/" target="_blank" rel="noopener">@tokyosrecife</a>
+        </p>
       </div>
     </div>
   </div>
@@ -258,8 +293,11 @@
   <div class="xadrez" aria-hidden="true"></div>
   <div class="wrap footer-inner">
     <div class="footer-brand">
-      <span class="brand-kanji big" aria-hidden="true">東京</span>
-      <p class="footer-tag">Tokyo<span class="apos">’</span>s Café<br><span>Recife, desde 1965</span></p>
+      <span class="marca marca-grande">
+        <span class="marca-nome">Tokyo<span class="apos">’</span>s</span>
+        <span class="marca-cafe">Café</span>
+      </span>
+      <p class="footer-tag"><span class="footer-sub">Recife · desde 1965</span></p>
     </div>
     <nav class="footer-nav" aria-label="Rodapé">
       <a href="#historia">História</a>
@@ -272,6 +310,15 @@
   </div>
 </footer>
 
+<!-- Botão flutuante de WhatsApp — fica no canto da tela em toda a página -->
+<a class="whats" href="https://api.whatsapp.com/send/?phone=558134261610&amp;text&amp;type=phone_number&amp;app_absent=0"
+   target="_blank" rel="noopener" aria-label="Falar com o Tokyo's Café no WhatsApp">
+  <svg class="whats-icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+  </svg>
+  <span class="whats-texto">WhatsApp</span>
+</a>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -282,7 +329,20 @@
   "servesCuisine": ["Pastelaria", "Japonesa", "Cafeteria"],
   "priceRange": "$$",
   "url": "https://tokyoscafe.com.br/",
+  "telephone": "+55-81-3426-1610",
   "sameAs": ["https://www.instagram.com/tokyosrecife/"],
+  "potentialAction": {
+    "@type": "OrderAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.ifood.com.br/delivery/recife-pe/tokyos-cafe-gracas/671bc274-ac4b-479d-b6b4-1a39fb78ec51",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform"
+      ]
+    },
+    "deliveryMethod": "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"
+  },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Rua Exemplo, 000",
