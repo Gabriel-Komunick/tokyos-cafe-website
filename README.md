@@ -24,7 +24,7 @@ index.html               página única (hero, história, cardápio, salão, vis
 assets/css/style.css     sistema visual completo
 assets/js/menu-data.js   ⭐ o cardápio — edite só este arquivo
 assets/js/main.js        cardápio dinâmico, busca, scrollspy, menu mobile
-assets/img/              fotos (ver checklist abaixo)
+assets/img/              fotos — temporárias, ver CREDITOS.md
 ```
 
 ## Atualizar o cardápio
@@ -68,28 +68,27 @@ O **cobogó** (quadrado com furo redondo, em referência ao edifício Pirapama)
 é o elemento estrutural do site. Ele existe como três variáveis CSS
 (`--cobogo-laranja`, `--cobogo-branco`, `--cobogo-tinta`) e reaparece no
 padrão do hero, no divisor entre seções, na régua de cada grupo do cardápio,
-no bloco da relíquia e nos placeholders de foto.
+no bloco da relíquia e no favicon.
 
 Tipografia: **Anton** nos títulos (letreiro condensado, pegada anos 60) e
 **Archivo** no texto.
+
+A **marca** é puramente tipográfica: "TOKYO'S" em tinta e "CAFÉ" em laranja,
+assentados sobre uma régua laranja que evoca a barra de um letreiro. Não há
+símbolo — o nome é a assinatura. Quando a fonte oficial da casa estiver
+disponível, basta trocar `--fonte-display` ou aplicar a fonte só em
+`.brand-word`.
 
 ## Pendências antes de publicar
 
 - [ ] **Endereço real.** Hoje há um placeholder marcado em vermelho na seção
       "Visite" (`index.html`) e no JSON-LD no fim do arquivo. Os dois precisam
       ser trocados.
-- [ ] **Fotos.** Todos os blocos com a classe `.ph` são placeholders; o
-      atributo `data-ph` diz qual arquivo entra ali. Troque cada `<div class="ph …">`
-      por um `<img src="assets/img/….jpg" alt="…" loading="lazy" width="…" height="…">`.
-
-      | Arquivo | Conteúdo |
-      |---|---|
-      | `hero.jpg` | pastel saindo da chapa / balcão (21:9) |
-      | `1965-fachada.jpg` | fachada 東京 LANCHE, 1965 (P&B) |
-      | `1965-familia.jpg` | família atrás do balcão (P&B) |
-      | `salao-amplo.jpg` | piso quadriculado, luminárias globulares |
-      | `maquina-pastel.jpg` | a máquina antiga em exposição |
-      | `galeria-1..4.jpg` | cobogós, mesa rosa, vitrine, piso (3:4) |
+- [ ] **Fotos reais.** As imagens em `assets/img/` são **temporárias** — fotos
+      de banco escolhidas só por terem contexto parecido. Nenhuma é do
+      Tokyo's Café. Ver [`assets/img/CREDITOS.md`](assets/img/CREDITOS.md)
+      para a lista, a procedência e as proporções esperadas. Mantendo os
+      mesmos nomes de arquivo, a troca não exige mexer no layout.
 
 - [ ] **Domínio.** Atualizar a `url` no JSON-LD e a `og:url`.
 - [ ] **Delivery / reserva.** Se houver iFood, Rappi ou link de reserva,

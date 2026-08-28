@@ -104,6 +104,30 @@ p { margin: 0 0 1.1em; }
 .hero .btn-ghost { color: var(--branco); }
 .hero .btn-ghost:hover { background: var(--branco); color: var(--laranja-esc); border-color: var(--branco); }
 
+/* CTA principal: fundo claro sobre o laranja do hero, com anel de contorno
+   para descolar do fundo. É o botão mais pesado da página, de propósito. */
+.btn-cta {
+  background: var(--branco);
+  color: var(--laranja-esc);
+  border-color: var(--branco);
+  font-size: 1.02rem;
+  padding: 1rem 2.1rem;
+  letter-spacing: .03em;
+  box-shadow:
+    0 0 0 3px rgba(28, 25, 23, .28),
+    0 0 0 6px rgba(251, 247, 240, .32),
+    0 14px 28px -12px rgba(60, 12, 8, .55);
+}
+.btn-cta:hover {
+  background: var(--tinta);
+  color: var(--branco);
+  border-color: var(--tinta);
+  box-shadow:
+    0 0 0 3px rgba(251, 247, 240, .9),
+    0 0 0 6px rgba(28, 25, 23, .25),
+    0 16px 30px -12px rgba(60, 12, 8, .6);
+}
+
 /* ------------------------------ CABEÇALHO ------------------------------ */
 .site-header {
   position: sticky; top: 0; z-index: 100;
@@ -116,21 +140,29 @@ p { margin: 0 0 1.1em; }
   gap: 1rem; height: var(--header-h);
 }
 
-.brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
-.brand-kanji {
-  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', serif;
-  background: var(--laranja); color: var(--branco);
-  font-size: .78rem; line-height: 1;
-  padding: .42rem .3rem; border-radius: 3px;
-  writing-mode: vertical-rl; letter-spacing: .08em;
+/* Marca: assinatura puramente tipográfica — o nome da casa, sem símbolo.
+   "TOKYO'S" em tinta, "CAFÉ" em laranja, sobre uma régua laranja que
+   evoca a barra de um letreiro antigo. */
+.brand {
+  display: inline-flex; align-items: baseline; gap: .34em;
+  text-decoration: none; position: relative;
+  padding-bottom: .3rem;
 }
-.brand-kanji.big { font-size: 1.4rem; padding: .6rem .45rem; }
-.brand-name {
+.brand::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0;
+  height: 3px; background: var(--laranja); border-radius: 2px;
+  transform: scaleX(1); transform-origin: left;
+  transition: background-color .2s ease;
+}
+.brand:hover::after { background: var(--vermelho); }
+
+.brand-word {
   font-family: var(--fonte-display);
-  font-size: 1.42rem; letter-spacing: .01em; text-transform: uppercase;
+  font-size: 1.34rem; line-height: 1;
+  text-transform: uppercase; letter-spacing: .012em;
 }
-.brand-name em { font-style: normal; color: var(--laranja); }
-.apos { font-family: var(--fonte-texto); }
+.brand-word-cafe { color: var(--laranja); }
+.apos { font-family: var(--fonte-texto); font-weight: 600; }
 
 .nav ul { display: flex; gap: .35rem; list-style: none; margin: 0; padding: 0; align-items: center; }
 .nav a {
@@ -155,25 +187,50 @@ p { margin: 0 0 1.1em; }
 .nav-toggle[aria-expanded="true"] i:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 
 /* -------------------------------- HERO --------------------------------- */
+/* O fundo do hero é montado em camadas para não ficar num degradê chapado:
+   brilho quente no alto, sombra funda embaixo, degradê de base, uma faixa
+   de luz diagonal, a malha de cobogós e, por cima de tudo, grão fino. */
 .hero {
   position: relative;
-  background: linear-gradient(165deg, var(--laranja) 0%, var(--laranja-esc) 58%, var(--vermelho) 100%);
   color: var(--branco);
   overflow: hidden;
-  padding: clamp(3.5rem, 9vw, 7rem) 0 0;
+  padding: clamp(1.6rem, 4vw, 3.2rem) 0 0;
+  background:
+    radial-gradient(120% 90% at 12% -10%, rgba(255, 186, 92, .95) 0%, rgba(255, 186, 92, 0) 55%),
+    radial-gradient(90% 80% at 105% 115%, rgba(120, 22, 18, .85) 0%, rgba(120, 22, 18, 0) 60%),
+    linear-gradient(158deg, var(--laranja) 0%, var(--laranja-esc) 52%, var(--vermelho) 100%);
 }
+
+/* faixa de luz diagonal — como a claraboia batendo no salão */
+.hero::before {
+  content: ''; position: absolute; inset: -20% -10% auto -10%; height: 130%;
+  background: linear-gradient(102deg,
+    transparent 34%, rgba(255, 236, 205, .16) 44%,
+    rgba(255, 236, 205, .05) 52%, transparent 60%);
+  pointer-events: none;
+}
+
+/* grão: tira o aspecto de degradê digital */
+.hero::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+  opacity: .085;
+  mix-blend-mode: overlay;
+}
+
 .hero-cobogo {
   position: absolute; inset: 0;
-  background-image: var(--cobogo-branco);
-  background-size: 72px 72px;
-  opacity: .16;
-  mask-image: linear-gradient(200deg, #000 0%, transparent 62%);
-  -webkit-mask-image: linear-gradient(200deg, #000 0%, transparent 62%);
-  animation: luz 22s ease-in-out infinite alternate;
+  background-image: var(--cobogo-branco), var(--cobogo-branco);
+  background-size: 72px 72px, 216px 216px;
+  background-position: 0 0, 36px 36px;
+  opacity: .2;
+  mask-image: radial-gradient(130% 100% at 8% 0%, #000 0%, rgba(0,0,0,.35) 45%, transparent 72%);
+  -webkit-mask-image: radial-gradient(130% 100% at 8% 0%, #000 0%, rgba(0,0,0,.35) 45%, transparent 72%);
+  animation: luz 26s ease-in-out infinite alternate;
 }
 @keyframes luz {
-  from { background-position: 0 0; }
-  to   { background-position: 72px 36px; }
+  from { background-position: 0 0, 36px 36px; }
+  to   { background-position: 72px 40px, -36px 4px; }
 }
 
 .hero-inner { position: relative; z-index: 1; max-width: 940px; }
@@ -204,11 +261,10 @@ p { margin: 0 0 1.1em; }
 
 .hero-photo {
   position: relative; z-index: 1;
-  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+  margin-top: clamp(1.8rem, 4.5vw, 3.2rem);
   width: 100%; max-width: var(--wrap);
   margin-inline: auto; padding-inline: var(--gut);
 }
-.ph-hero { aspect-ratio: 21/9; border-radius: 8px 8px 0 0; }
 
 /* ------------------------------- SEÇÕES -------------------------------- */
 .section { padding: clamp(3.5rem, 9vw, 7rem) 0; position: relative; }
@@ -276,7 +332,9 @@ p { margin: 0 0 1.1em; }
   margin-top: .6rem; line-height: 1.45;
 }
 .section-presente figcaption { color: rgba(251,247,240,.8); }
-.foto-arquivo .ph { filter: grayscale(1) contrast(1.05); }
+/* As fotos de 1965 vivem em preto e branco — dessaturadas por CSS,
+   para que qualquer foto colocada ali entre no mesmo registro. */
+.foto-arquivo img { filter: grayscale(1) contrast(1.06) brightness(.98); }
 
 .reliquia {
   margin-top: 2rem; padding: 1.3rem 1.4rem;
@@ -434,46 +492,32 @@ p { margin: 0 0 1.1em; }
 }
 .footer-inner { padding: 3rem 0 2.2rem; display: grid; gap: 1.6rem; }
 .footer-brand { display: flex; align-items: center; gap: 1rem; }
-.footer-tag {
-  margin: 0; font-family: var(--fonte-display);
-  font-size: 1.5rem; text-transform: uppercase; line-height: 1.1;
-}
-.footer-tag span {
-  display: block; font-family: var(--fonte-texto);
-  font-size: .82rem; font-weight: 500; letter-spacing: .1em;
-  color: rgba(251,247,240,.6); text-transform: none;
+.footer-tag { margin: 0; line-height: 1.1; }
+.footer-tag .brand-word { font-size: 1.7rem; }
+.footer-brand .brand-word-cafe { color: var(--laranja); }
+.footer-sub {
+  display: block; margin-top: .55rem;
+  font-family: var(--fonte-texto);
+  font-size: .8rem; font-weight: 500; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(251,247,240,.55);
 }
 .footer-nav { display: flex; flex-wrap: wrap; gap: 1.4rem; }
 .footer-nav a { text-decoration: none; font-weight: 600; font-size: .93rem; color: rgba(251,247,240,.82); }
 .footer-nav a:hover { color: var(--laranja); }
 .footer-legal { margin: 0; font-size: .8rem; color: rgba(251,247,240,.45); }
 
-/* --------------------------- PLACEHOLDERS ------------------------------ */
-/* Blocos temporários no lugar das fotos. Substituir por <img> ao receber
-   os arquivos — o texto em data-ph indica o arquivo esperado.            */
-.ph {
-  position: relative;
-  background-color: var(--areia);
-  background-image: var(--cobogo-tinta);
-  background-size: 48px 48px;
+/* --------------------------------- FOTOS -------------------------------- */
+/* As proporções são fixas para o layout não pular enquanto as imagens
+   carregam; object-fit corta o excedente em vez de deformar.             */
+.img-4x3, .img-3x4, .foto-hero {
+  width: 100%; height: auto;
+  object-fit: cover;
+  background: var(--areia);
   border-radius: 6px;
-  overflow: hidden;
-  isolation: isolate;
 }
-.ph::before {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(140deg, rgba(229,96,31,.18), rgba(180,100,74,.28));
-}
-.ph::after {
-  content: attr(data-ph);
-  position: absolute; inset: auto 0 0 0;
-  font-size: .68rem; font-weight: 600; letter-spacing: .04em;
-  color: rgba(28,25,23,.62);
-  background: rgba(251,247,240,.88);
-  padding: .4rem .6rem; line-height: 1.35;
-}
-.ph-4x3 { aspect-ratio: 4/3; }
-.ph-3x4 { aspect-ratio: 3/4; }
+.img-4x3 { aspect-ratio: 4/3; }
+.img-3x4 { aspect-ratio: 3/4; }
+.foto-hero { aspect-ratio: 21/9; border-radius: 8px 8px 0 0; }
 
 /* ------------------------------ REVEAL --------------------------------- */
 .reveal { opacity: 0; transform: translateY(22px); }
@@ -519,7 +563,7 @@ p { margin: 0 0 1.1em; }
   .hist-grid-rev .hist-text { order: 0; }
   .hist-fotos { grid-template-columns: 1fr 1fr; }
 
-  .ph-hero { aspect-ratio: 4/3; }
+  .foto-hero { aspect-ratio: 4/3; }
   .footer-inner { padding: 2.4rem 0 1.8rem; }
 }
 
